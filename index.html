@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotina e Finanças</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <meta name="theme-color" content="#0b0f14">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>     
+</head>
+<body>
+<div id="app" class="app-root">
+<header class="topbar">
+<h1>Rotina & Finanças</h1>
+<button id="installBtn" class="btn small">Instalar</button>
+</header>
+
+
+<main class="container">
+<section class="panel panel-left">
+<h2>Rotina</h2>
+<form id="taskForm" class="card">
+<input id="taskTitle" placeholder="Título da tarefa" required />
+<select id="taskFreq">
+<option value="daily">Diária</option>
+<option value="weekly">Semanal</option>
+<option value="monthly">Mensal</option>
+</select>
+<input id="taskTime" type="time" />
+<div class="row">
+<button class="btn" type="submit">Adicionar</button>
+<button id="clearTasks" type="button" class="btn alt">Limpar</button>
+</div>
+</form>
+
+
+<div id="tasksList" class="list"></div>
+</section>
+
+
+<section class="panel panel-right">
+<h2>Finanças</h2>
+<form id="moneyForm" class="card">
+<input id="txnTitle" placeholder="Descrição" required />
+<input id="txnAmount" type="number" step="0.01" placeholder="Valor (use - para despesa)" required />
+<select id="txnType">
+<option value="expense">Despesa</option>
+<option value="income">Receita</option>
+</select>
+<div class="row">
+<button class="btn" type="submit">Registrar</button>
+<button id="clearTxns" type="button" class="btn alt">Limpar</button>
+</div>
+</form>
+
+
+<div class="card summary">
+<div>Saldo: <strong id="balance">R$ 0,00</strong></div>
+<div>Receitas: <span id="totalIncome">R$ 0,00</span></div>
+<div>Despesas: <span id="totalExpense">R$ 0,00</span></div>
+</div>
+
+
+<div class="card report-card">
+<h3>Relatórios</h3>
+<canvas id="chartOverview" width="400" height="200"></canvas>
+<button id="exportReport" class="btn">Exportar relatório (PDF)</button>
+</div>
+</section>
+</main>
+
+
+<footer class="footer">Feito para organizar seu tempo e dinheiro • Tema escuro</footer>
+</div>
+
+
+<script type="module" src="../app/app.js"></script>
+</body>
+</html>
